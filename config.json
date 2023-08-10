@@ -1,0 +1,11 @@
+{
+  "name": "khalista",
+  "version": "1.0.0",
+  "description": "A modern web application template",
+  "settings": {
+    "theme": "light",
+    "language": "en",
+    "debug": false,
+    "cache": true
+  }
+} 
