@@ -1,11 +1,20 @@
 {
   "name": "khalista",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "A modern web application template",
   "settings": {
-    "theme": "light",
+    "theme": "dark",
     "language": "en",
     "debug": false,
-    "cache": true
+    "cache": true,
+    "analytics": true,
+    "notifications": {
+      "email": true,
+      "push": false
+    },
+    "security": {
+      "twoFactor": true,
+      "passwordPolicy": "strong"
+    }
   }
 } 
