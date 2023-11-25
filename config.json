@@ -1,9 +1,9 @@
 {
   "name": "khalista",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "description": "A modern web application template",
   "settings": {
-    "theme": "dark",
+    "theme": "auto",
     "language": "en",
     "debug": false,
     "cache": true,
@@ -11,7 +11,7 @@
     "notifications": {
       "email": true,
       "push": true,
-      "sms": false
+      "sms": true
     },
     "security": {
       "twoFactor": true,
@@ -27,6 +27,14 @@
         "server": true,
         "duration": 3600
       }
+    },
+    "i18n": {
+      "defaultLocale": "en",
+      "supportedLocales": ["en", "es", "fr", "de", "ja"],
+      "fallbackLocale": "en",
+      "autoDetect": true,
+      "dateFormat": "MM/DD/YYYY",
+      "timeFormat": "24h"
     }
   }
 } 
