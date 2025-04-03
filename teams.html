@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>E-SUMMIT Teams</title>
+    <meta content="Meet our dedicated teams working behind the scenes to make E-SUMMIT a success." name="description" />
+    <meta content="E-SUMMIT Teams" property="og:title" />
+    <meta content="Meet our dedicated teams working behind the scenes to make E-SUMMIT a success." property="og:description" />
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <link href="https://assets-global.website-files.com/664af7bf6430c50e0ebf6c3f/css/bonanza-events.webflow.7f1925844.css" rel="stylesheet" type="text/css" />
+    <link href="style/index.css" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="anonymous" />
+    <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js" type="text/javascript"></script>
+    <script type="text/javascript">WebFont.load({ google: { families: ["Anton:regular", "Plus Jakarta Sans:regular,500,600"] } });</script>
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+        .h1 {
+            font-size: 2.5em;
+            margin: 20px 0;
+            text-align: center;
+        }
+        .committee {
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 10px 0;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .committee h2 {
+            font-size: 1.8em;
+            margin-bottom: 10px;
+        }
+        .footer {
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .footer-menu-item {
+            color: white;
+            margin: 0 10px;
+            text-decoration: none;
+        }
+        .section-padding {
+            padding: 40px 0;
+        }
+        
+        /* Timetable Styles */
+        .timetable-day {
+            margin-bottom: 30px;
+        }
+        .timetable-grid {
+            display: grid;
+            grid-template-columns: repeat(1, 1fr);
+            gap: 15px;
+        }
+        .timetable-item {
+            background-color: white;
+            border-radius: 8px;
+            padding: 15px;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+        }
+        .time {
+            font-weight: 600;
+            color: #555;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+            border-left: 4px solid #4d94ff;
+            padding-left: 10px;
+        }
+        .event h3 {
+            margin: 0 0 8px 0;
+            font-size: 1.4em;
+        }
+        .event p {
+            margin: 0;
+            color: #666;
+        }
+        
+        /* Media Queries for Responsive Design */
+        @media (min-width: 768px) {
+            .timetable-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+        }
+        
+        @media (min-width: 992px) {
+            .timetable-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 25px;
+            }
+        }
+    </style>
+</head>
+
+<body class="body">
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loading-screen">
+        <div class="loading-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="shape shape-3"></div>
+            <div class="shape-wave">
+                <div class="wave"></div>
+            </div>
+        </div>
+        <div class="loading-content">
+            <div class="loading-logo">
+                E-SUMMIT Teams
+                <div class="loading-logo-highlight"></div>
+            </div>
+            <div class="loading-tagline">Meet Our Dedicated Teams</div>
+            <div class="loading-progress-container">
+                <div class="loading-percentage">Loading...</div>
+                <div class="loading-progress">
+                    <div class="loading-bar"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="w-layout-blockcontainer container w-container">
+            <div class="nav-content">
+                <a href="/" class="nav-logo-block w-inline-block" style="display: flex; align-items: center; gap: 20px;">
+                    <img src="https://srmap.edu.in/file/2019/12/Logo-2.png" loading="lazy" alt="E-SUMMIT Events" class="nav-logo" style="height: 40px; width: auto;" />
+                    <img src="/image/ecell.png" loading="lazy" alt="Second Logo" class="nav-logo" style="height: 40px; width: auto;" />
+                </a>
+                <div class="nav-buttons-wrapper">
+                    <a href="https://discord.com/" target="_blank" class="button secondary w-button">Register</a>
+                    <a href="https://buymeacoffee.com/" target="_blank" class="button secondary w-button">Support Us</a>
+                </div>
+                <div data-w-id="3a69cf98-d524-c705-09d0-7efc696f4ebd" class="hamburger-menu open-menu">
+                    <div data-w-id="d6b6be04-c64f-2a2c-46b1-db88bc99663d" class="hamburger-menu-line-one"></div>
+                    <div data-w-id="6c788ae3-ecc2-3205-37cf-448614eeca5c" class="hamburger-menu-line-two"></div>
+                </div>
+                <div class="hamburger-menu-dropdown">
+                    <a href="/#upcoming-events" class="hamburger-menu-link">Upcoming Events</a>
+                    <a href="/#who-we-are" class="hamburger-menu-link">Who We Are</a>
+                    <a href="/#what-we-do" class="hamburger-menu-link">What We Do</a>
+                    <a href="/#about-events" class="hamburger-menu-link">About Events</a>
+                    <a href="/#mentors" class="hamburger-menu-link">Mentors</a>
+                    <a href="/#contact-us" class="hamburger-menu-link">Contact Us</a>
+                </div>
+            </div>
+            <div data-w-id="cfeb5d51-0757-a9ea-4ad7-d29ff97b3e75" class="nav-adaptation-menu">
+                <div class="nav-menu-and-links">
+                    <div class="nav-content">
+                        <a href="/" class="nav-logo-block w-inline-block">
+                            <img src="https://cdn.prod.website-files.com/664af7bf6430c50e0ebf6c3f/664b0b121a85edcd71cb2710_Logo.svg" loading="lazy" alt="E-SUMMIT Events" class="nav-logo" />
+                        </a>
+                        <div data-w-id="eafbfd94-11b2-e70b-681d-d501b8677f01" class="hamburger-menu close-menu">
+                            <div data-w-id="eafbfd94-11b2-e70b-681d-d501b8677f02" class="hamburger-menu-line-one"></div>
+                            <div data-w-id="eafbfd94-11b2-e70b-681d-d501b8677f03" class="hamburger-menu-line-two"></div>
+                        </div>
+                    </div>
+                    <div class="nav-adaptation-links-wrapper">
+                        <a href="/#upcoming-events" class="nav-adaptation-link">Upcoming Events</a>
+                        <a href="/#who-we-are" class="nav-adaptation-link">Who We Are</a>
+                        <a href="/#what-we-do" class="nav-adaptation-link">What We Do</a>
+                        <a href="/#about-events" class="nav-adaptation-link">About Events</a>
+                        <a href="/#mentors" class="nav-adaptation-link">Mentors</a>
+                        <a href="/#contact-us" class="nav-adaptation-link">Contact Us</a>
+                    </div>
+                </div>
+                <div class="adaptation-menu-buttons">
+                    <a href="https://discord.com/" target="_blank" class="button secondary w-button">Join Community</a>
+                    <a href="https://buymeacoffee.com/" target="_blank" class="button secondary w-button">Support Us</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <section class="section section-padding">
+        <div class="w-layout-blockcontainer container w-container">
+            <h1 class="h1 text-center">Our Committees</h1>
+            <div class="committee">
+                <h2>Marketing Committee</h2>
+                <p><strong>Head:</strong> Alice Johnson</p>
+                <p><strong>Co-Head:</strong> Bob Smith</p>
+                <p><strong>Volunteers:</strong> Charlie Brown, David Wilson, Emma Davis</p>
+            </div>
+            <div class="committee">
+                <h2>Technical Committee</h2>
+                <p><strong>Head:</strong> Sarah Connor</p>
+                <p><strong>Co-Head:</strong> John Doe</p>
+                <p><strong>Volunteers:</strong> Michael Lee, Jessica Taylor, Daniel Kim</p>
+            </div>
+            <div class="committee">
+                <h2>Logistics Committee</h2>
+                <p><strong>Head:</strong> Rachel Green</p>
+                <p><strong>Co-Head:</strong> Ross Geller</p>
+                <p><strong>Volunteers:</strong> Monica Geller, Chandler Bing, Phoebe Buffay</p>
+            </div>
+            <div class="committee">
+                <h2>Design Committee</h2>
+                <p><strong>Head:</strong> Leo Messi</p>
+                <p><strong>Co-Head:</strong> Neymar Jr.</p>
+                <p><strong>Volunteers:</strong> Cristiano Ronaldo, Kylian Mbappé, Eden Hazard</p>
+            </div>
+            <!-- Add more committees as needed -->
+        </div>
+    </section>
+
+    <!-- Timetable Section -->
+    <section class="section section-padding" style="background-color: #f0f0f0;">
+        <div class="w-layout-blockcontainer container w-container">
+            <h1 class="h1 text-center">E-SUMMIT Schedule</h1>
+            <p class="text-center" style="margin-bottom: 30px;">Mark your calendars for our exciting lineup of events</p>
+            
+            <!-- Day 1 Schedule -->
+            <div class="timetable-day">
+                <h2 style="color: #ff4d4d; border-bottom: 2px solid #ff4d4d; padding-bottom: 10px; margin-bottom: 20px;">Day 1: Networking Dinner</h2>
+                <div class="timetable-grid">
+                    <div class="timetable-item">
+                        <div class="time">9:00 AM - 11:00 AM</div>
+                        <div class="event">
+                            <h3>Networking Arena</h3>
+                            <p>Venue: Main Hall</p>
+                        </div>
+                    </div>
+                    <div class="timetable-item">
+                        <div class="time">2:00 PM - 5:30 PM</div>
+                        <div class="event">
+                            <h3>Pitch Event</h3>
+                            <p>Venue: Faculty Lounge</p>
+                        </div>
+                    </div>
+                    <div class="timetable-item">
+                        <div class="time">8:30 PM - 11:30 PM</div>
+                        <div class="event">
+                            <h3>Gala Dinner</h3>
+                            <p>Venue: Grand Hall</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Day 2 Schedule -->
+            <div class="timetable-day">
+                <h2 style="color: #4d94ff; border-bottom: 2px solid #4d94ff; padding-bottom: 10px; margin: 40px 0 20px;">Day 2: Workshop Day</h2>
+                <div class="timetable-grid">
+                    <div class="timetable-item">
+                        <div class="time">10:00 AM - 12:30 PM</div>
+                        <div class="event">
+                            <h3>Board Discussion</h3>
+                            <p>Venue: Conference Hall</p>
+                        </div>
+                    </div>
+                    <div class="timetable-item">
+                        <div class="time">2:00 PM - 4:45 PM</div>
+                        <div class="event">
+                            <h3>Panel Discussion</h3>
+                            <p>Venue: Main Auditorium</p>
+                        </div>
+                    </div>
+                    <div class="timetable-item">
+                        <div class="time">5:00 PM - 7:00 PM</div>
+                        <div class="event">
+                            <h3>Keynote: HIPHOP</h3>
+                            <p>Venue: Main Auditorium</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Day 3 Schedule -->
+            <div class="timetable-day">
+                <h2 style="color: #4dbd74; border-bottom: 2px solid #4dbd74; padding-bottom: 10px; margin: 40px 0 20px;">Day 3: Startup Camp</h2>
+                <div class="timetable-grid">
+                    <div class="timetable-item">
+                        <div class="time">9:00 AM - 11:00 AM</div>
+                        <div class="event">
+                            <h3>Startup Expo</h3>
+                            <p>Venue: Exhibition Hall</p>
+                        </div>
+                    </div>
+                    <div class="timetable-item">
+                        <div class="time">12:30 PM - 1:30 PM</div>
+                        <div class="event">
+                            <h3>Break</h3>
+                            <p>Venue: Main Campus</p>
+                        </div>
+                    </div>
+                    <div class="timetable-item">
+                        <div class="time">2:00 PM - 3:00 PM</div>
+                        <div class="event">
+                            <h3>Panel Discussion</h3>
+                            <p>Venue: Auditorium</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Summit Day -->
+            <div class="timetable-day">
+                <h2 style="color: #9966cc; border-bottom: 2px solid #9966cc; padding-bottom: 10px; margin: 40px 0 20px;">E-Summit Day</h2>
+                <div class="timetable-grid">
+                    <div class="timetable-item">
+                        <div class="time">11:00 AM - 1:30 PM</div>
+                        <div class="event">
+                            <h3>Keynote Addresses</h3>
+                            <p>Venue: Main Auditorium</p>
+                        </div>
+                    </div>
+                    <div class="timetable-item">
+                        <div class="time">2:00 PM - 4:00 PM</div>
+                        <div class="event">
+                            <h3>Grand Showcase</h3>
+                            <p>Venue: Summit Hall</p>
+                        </div>
+                    </div>
+                    <div class="timetable-item">
+                        <div class="time">5:00 PM - 7:00 PM</div>
+                        <div class="event">
+                            <h3>Award Ceremony</h3>
+                            <p>Venue: Main Auditorium</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="w-layout-blockcontainer container w-container">
+            <div class="footer-content">
+                <div class="footer-text-and-button">
+                    <div class="footer-text">E-SUMMIT</div>
+                </div>
+                <a href="https://discord.com/" target="_blank" class="footer-button w-inline-block">
+                    <div class="unique-button-text-wrapper">
+                        <div class="regular-xl max-width-96">Join Us Now!</div>
+                    </div>
+                </a>
+            </div>
+            <div class="footer-menu-wrapper">
+                <div class="footer-menu">
+                    <div class="footer-menu-items">
+                        <a href="/" class="footer-menu-item">Home</a>
+                        <a href="#" class="footer-menu-item">Teams</a>
+                        <a href="/#contact-us" class="footer-menu-item">Contact</a>
+                    </div>
+                </div>
+                <div class="regular-s-uppercase color-accent">© 2024, All Rights Reserved</div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js" type="text/javascript"></script>
+    <script src="https://assets-global.website-files.com/664af7bf6430c50e0ebf6c3f/js/webflow.239d3f383.js" type="module"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            window.addEventListener("load", function() {
+                setTimeout(function() {
+                    var loadingScreen = document.getElementById("loading-screen");
+                    loadingScreen.style.opacity = "0";
+                    setTimeout(function() {
+                        loadingScreen.style.display = "none";
+                    }, 500);
+                }, 3000); // 3 seconds delay
+            });
+        });
+    </script>
+</body>
+
+</html> 
