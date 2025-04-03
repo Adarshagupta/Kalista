@@ -1,0 +1,47 @@
+/* Floating particles effect for cyberpunk atmosphere */
+.particles-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.particle {
+    position: absolute;
+    display: block;
+    pointer-events: none;
+    z-index: 1;
+    background: rgba(212, 192, 0, 0.5);
+    border-radius: 50%;
+    box-shadow: 0 0 10px 2px rgba(212, 192, 0, 0.3);
+    animation: float-particle var(--duration) infinite ease-in-out;
+    opacity: 0;
+}
+
+@keyframes float-particle {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: var(--opacity);
+    }
+    90% {
+        opacity: var(--opacity);
+    }
+    100% {
+        transform: translateY(calc(-1 * var(--travel-distance))) rotate(var(--rotation));
+        opacity: 0;
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 767px) {
+    .particles-container {
+        display: none; /* Disable on mobile for performance */
+    }
+}

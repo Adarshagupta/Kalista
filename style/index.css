@@ -3,11 +3,376 @@
     display: none !important;
 }
 .hero{
-    background-color: white;
-}
-.hero-ball{
-    background-image: radial-gradient(circle farthest-side, #fff8e2 30%, #ffeaa6);
+    background-color: rgb(208, 206, 206); /* Changed from var(--accent-yellow) to transparent for image background */
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    min-height: 680px;
+    padding-top: 28px;
+    display: flex;
+    position: fixed; /* Keep fixed positioning */
+    overflow: hidden;
 
+}
+/* Hero ball with cyberpunk yellow glow */
+.hero-ball {
+    background-image: radial-gradient(circle farthest-side, #ffdf77 30%, #e8bd2f);
+    border-radius: 50%;
+    width: 760px;
+    min-width: 760px;
+    height: 760px;
+    min-height: 760px;
+    margin-left: 0;
+    margin-right: 0;
+    position: absolute;
+    top: auto;
+    bottom: -569px;
+    left: auto;
+    right: auto;
+    box-shadow: inset 0 35px 40px #ffeba9, 0 0 30px rgba(255, 238, 0, 0.6);
+    animation: pulse-glow 4s infinite alternate ease-in-out;
+    z-index: 1;
+}
+
+/* Pulsating glow animation */
+@keyframes pulse-glow {
+    0% {
+        box-shadow: inset 0 35px 40px #ffeba9, 0 0 30px rgba(255, 238, 0, 0.6);
+        transform: scale(1);
+    }
+    50% {
+        box-shadow: inset 0 35px 40px #ffeba9, 0 0 50px rgba(255, 238, 0, 0.8);
+        transform: scale(1.02);
+    }
+    100% {
+        box-shadow: inset 0 35px 40px #ffeba9, 0 0 30px rgba(255, 238, 0, 0.6);
+        transform: scale(1);
+    }
+}
+
+/* Video Background Styles */
+.video-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.video-background iframe {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100vw;
+    height: 100vh;
+    transform: translate(-50%, -50%);
+    pointer-events: none; /* Prevents interaction with the iframe */
+    object-fit: cover;
+    min-width: 100%;
+    min-height: 100%;
+}
+
+.video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* H1 styling with cyberpunk style and glitch effect */
+h1, .h1, .home-hero-text {
+    letter-spacing: -5.6px;
+    margin-top: 0;
+    margin-bottom: 0;
+    font-family: Anton, sans-serif;
+    font-size: 280px;
+    font-weight: 400;
+    line-height: 96%;
+    /* Yellow cyberpunk color scheme with neon glow */
+    color: #ffe600; /* Darker yellow base color */
+    /* Add white stroke effect with cross-browser support */
+    -webkit-text-stroke: 2px white;
+    /* Neon glow effect */
+    text-shadow:
+        0 0 5px rgba(212, 192, 0, 0.7),
+        0 0 10px rgba(212, 192, 0, 0.5),
+        0 0 15px rgba(212, 192, 0, 0.3),
+        0 0 20px rgba(212, 192, 0, 0.2),
+        -1px -1px 0 #fff,
+        1px -1px 0 #fff,
+        -1px 1px 0 #fff,
+        1px 1px 0 #fff;
+    position: relative;
+    /* Add glitch animation */
+    animation: glitch-skew 1s infinite linear alternate-reverse;
+    /* Add cyberpunk style with slight tilt and perspective */
+    transform-style: preserve-3d;
+    perspective: 500px;
+    transform: rotateX(5deg);
+    /* Add futuristic border with darker yellow theme */
+    border-bottom: 2px solid rgba(212, 192, 0, 0.4);
+    /* Add clip effect for futuristic look */
+    clip-path: polygon(0 0, 100% 0, 98% 100%, 2% 100%);
+}
+
+/* Create cyberpunk glitch pseudo-elements */
+h1:before, .h1:before, .home-hero-text:before {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    color: #e68a00; /* Darker orange - complementary to yellow */
+    -webkit-text-stroke: 2px rgba(230, 138, 0, 0.8); /* Darker orange glitch */
+    text-shadow: 0 0 8px rgba(230, 138, 0, 0.6); /* Darker orange glow */
+    animation: glitch-anim 5s infinite linear alternate-reverse;
+    clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%);
+    transform: translate(-5px, -3px);
+    opacity: 0.8;
+    mix-blend-mode: screen; /* Blend for better neon effect */
+    transition: content 0.1s ease;
+}
+
+h1:after, .h1:after, .home-hero-text:after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    color: #d4c000; /* Darker yellow */
+    -webkit-text-stroke: 2px rgba(212, 192, 0, 0.8); /* Darker yellow glitch */
+    text-shadow: 0 0 8px rgba(212, 192, 0, 0.6); /* Darker yellow glow */
+    animation: glitch-anim2 3s infinite linear alternate-reverse;
+    clip-path: polygon(0 60%, 100% 60%, 100% 100%, 0 100%);
+    transform: translate(5px, 3px);
+    opacity: 0.8;
+    mix-blend-mode: screen; /* Blend for better neon effect */
+    transition: content 0.1s ease;
+}
+
+/* Extra glitch during transitions */
+.cycling-text.transitioning:before {
+    animation: glitch-anim 0.2s infinite linear alternate-reverse;
+    clip-path: polygon(0 0, 100% 0, 100% 55%, 0 55%);
+    transform: translate(-8px, -5px);
+    opacity: 0.9;
+}
+
+.cycling-text.transitioning:after {
+    animation: glitch-anim2 0.1s infinite linear alternate-reverse;
+    clip-path: polygon(0 50%, 100% 50%, 100% 100%, 0 100%);
+    transform: translate(8px, 5px);
+    opacity: 0.9;
+}
+
+/* Cyberpunk glitch animations */
+@keyframes glitch-anim {
+    0% {
+        clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%);
+        transform: translate(-5px, -3px) rotateX(2deg);
+        opacity: 0.8;
+        text-shadow: 0 0 8px rgba(230, 138, 0, 0.8);
+    }
+    20% {
+        clip-path: polygon(0 15%, 100% 15%, 100% 40%, 0 40%);
+        transform: translate(-3px, 3px) rotateZ(-1deg);
+        opacity: 0.9;
+        text-shadow: 0 0 12px rgba(230, 138, 0, 0.7);
+    }
+    40% {
+        clip-path: polygon(0 30%, 100% 30%, 100% 65%, 0 65%);
+        transform: translate(3px, 1px) rotateY(1deg);
+        opacity: 0.7;
+        text-shadow: 0 0 5px rgba(230, 138, 0, 0.9);
+    }
+    60% {
+        clip-path: polygon(0 45%, 100% 45%, 100% 70%, 0 70%);
+        transform: translate(3px, 3px) rotateZ(0.5deg);
+        opacity: 0.8;
+        text-shadow: 0 0 10px rgba(230, 138, 0, 0.6);
+    }
+    80% {
+        clip-path: polygon(0 45%, 100% 45%, 100% 70%, 0 70%);
+        transform: translate(-3px, 2px) rotateX(-1deg);
+        opacity: 0.9;
+        text-shadow: 0 0 15px rgba(230, 138, 0, 0.8);
+    }
+    100% {
+        clip-path: polygon(0 15%, 100% 15%, 100% 45%, 0 45%);
+        transform: translate(3px, -1px) rotateZ(1deg);
+        opacity: 0.8;
+        text-shadow: 0 0 8px rgba(230, 138, 0, 0.7);
+    }
+}
+
+@keyframes glitch-anim2 {
+    0% {
+        clip-path: polygon(0 60%, 100% 60%, 100% 100%, 0 100%);
+        transform: translate(5px, 3px) rotateZ(0.5deg);
+        opacity: 0.8;
+        text-shadow: 0 0 8px rgba(212, 192, 0, 0.8);
+    }
+    20% {
+        clip-path: polygon(0 60%, 100% 60%, 100% 80%, 0 80%);
+        transform: translate(-5px, 5px) rotateY(-1deg);
+        opacity: 0.9;
+        text-shadow: 0 0 12px rgba(212, 192, 0, 0.7);
+    }
+    40% {
+        clip-path: polygon(0 75%, 100% 75%, 100% 100%, 0 100%);
+        transform: translate(-3px, -5px) rotateX(1deg);
+        opacity: 0.7;
+        text-shadow: 0 0 5px rgba(212, 192, 0, 0.9);
+    }
+    60% {
+        clip-path: polygon(0 50%, 100% 50%, 100% 100%, 0 100%);
+        transform: translate(5px, 2px) rotateZ(-0.5deg);
+        opacity: 0.8;
+        text-shadow: 0 0 10px rgba(212, 192, 0, 0.6);
+    }
+    80% {
+        clip-path: polygon(0 70%, 100% 70%, 100% 90%, 0 90%);
+        transform: translate(3px, -6px) rotateY(1deg);
+        opacity: 0.9;
+        text-shadow: 0 0 15px rgba(212, 192, 0, 0.8);
+    }
+    100% {
+        clip-path: polygon(0 60%, 100% 60%, 100% 100%, 0 100%);
+        transform: translate(2px, 2px) rotateX(-1deg);
+        opacity: 0.8;
+        text-shadow: 0 0 8px rgba(212, 192, 0, 0.7);
+    }
+}
+
+@keyframes glitch-skew {
+    0% {
+        transform: rotateX(5deg) skew(0deg);
+    }
+    20% {
+        transform: rotateX(4deg) skew(0.5deg);
+    }
+    40% {
+        transform: rotateX(5.5deg) skew(0deg);
+    }
+    60% {
+        transform: rotateX(4.5deg) skew(-0.5deg);
+    }
+    80% {
+        transform: rotateX(5deg) skew(0.25deg);
+    }
+    100% {
+        transform: rotateX(5deg) skew(0deg);
+    }
+}
+
+/* Add scanline effect to the hero section */
+.hero::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, transparent 50%, rgba(0, 0, 0, 0.3) 50%);
+    background-size: 100% 4px;
+    z-index: 1;
+    mix-blend-mode: overlay;
+    pointer-events: none;
+    animation: scanline 0.5s linear infinite;
+    opacity: 0.3;
+}
+
+/* Add digital noise overlay */
+.hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAAFEmlUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4gPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNS42LWMxNDAgNzkuMTYwNDUxLCAyMDE3LzA1LzA2LTAxOjA4OjIxICAgICAgICAiPiA8cmRmOlJERiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPiA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtbG5zOmRjPSJodHRwOi8vcHVybC5vcmcvZGMvZWxlbWVudHMvMS4xLyIgeG1sbnM6cGhvdG9zaG9wPSJodHRwOi8vbnMuYWRvYmUuY29tL3Bob3Rvc2hvcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RFdnQ9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZUV2ZW50IyIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ0MgMjAxOCAoTWFjaW50b3NoKSIgeG1wOkNyZWF0ZURhdGU9IjIwMTktMDEtMzFUMTg6NTU6MDgrMDE6MDAiIHhtcDpNb2RpZnlEYXRlPSIyMDE5LTAxLTMxVDE4OjU4OjIzKzAxOjAwIiB4bXA6TWV0YWRhdGFEYXRlPSIyMDE5LTAxLTMxVDE4OjU4OjIzKzAxOjAwIiBkYzpmb3JtYXQ9ImltYWdlL3BuZyIgcGhvdG9zaG9wOkNvbG9yTW9kZT0iMyIgcGhvdG9zaG9wOklDQ1Byb2ZpbGU9InNSR0IgSUVDNjE5NjYtMi4xIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOmIzMzBlMWI0LTk5ZDctNGU2NS05MGQ2LTNmYjFiYmE2ZTE0MCIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDpiMzMwZTFiNC05OWQ3LTRlNjUtOTBkNi0zZmIxYmJhNmUxNDAiIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDpiMzMwZTFiNC05OWQ3LTRlNjUtOTBkNi0zZmIxYmJhNmUxNDAiPiA8eG1wTU06SGlzdG9yeT4gPHJkZjpTZXE+IDxyZGY6bGkgc3RFdnQ6YWN0aW9uPSJjcmVhdGVkIiBzdEV2dDppbnN0YW5jZUlEPSJ4bXAuaWlkOmIzMzBlMWI0LTk5ZDctNGU2NS05MGQ2LTNmYjFiYmE2ZTE0MCIgc3RFdnQ6d2hlbj0iMjAxOS0wMS0zMVQxODo1NTowOCswMTowMCIgc3RFdnQ6c29mdHdhcmVBZ2VudD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTggKE1hY2ludG9zaCkiLz4gPC9yZGY6U2VxPiA8L3htcE1NOkhpc3Rvcnk+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+Gy1JrQAAAPFJREFUaIHt2DEOgzAQRFGQ0iVNmpwmR8sJfJqcAQqfAGRLyYIHGMuJPdKWaex5FZYsi9M0GWOahBAufd8/OOcOQojBWvvMsqzQWk8hBL/ve2Gt9cYY0znn+r7vL13X3bTWUxzHMYRQpWmqKaWklHKbpol5nl8uiJRyY4yVfd8r59xBKSV+9VLbtiillBjjOI7jOI7jOI7jOI7jOI7jOI7jOI7jOI7jOI7jOI7jOI7jOI7jOI7jOI7jOI7jOI7jOI7jOI7jOI7jOI7jOI7jOI7jOI7jOI7jOI7jOI7jOI7jOI7jOI7jOI7jOI7jOI7jOI7jOI7jOI77qzcbFjR6X67KcgAAAABJRU5ErkJggg==');
+    background-size: cover;
+    opacity: 0.05;
+    z-index: 2;
+    mix-blend-mode: overlay;
+    pointer-events: none;
+}
+
+/* Text cycling animation */
+.cycling-text {
+    position: relative;
+    display: inline-block;
+    transition: opacity 0.2s ease;
+}
+
+/* Enhanced glitch effect during text transitions */
+.cycling-text.transitioning {
+    animation: transitionGlitch 0.2s ease;
+}
+
+@keyframes transitionGlitch {
+    0% {
+        transform: translate(0);
+        text-shadow: 0 0 5px rgba(212, 192, 0, 0.7);
+    }
+    20% {
+        transform: translate(-5px, 5px);
+        text-shadow: 0 0 10px rgba(230, 138, 0, 0.7);
+    }
+    40% {
+        transform: translate(5px, -2px);
+        text-shadow: 0 0 15px rgba(212, 192, 0, 0.7);
+    }
+    60% {
+        transform: translate(-3px, -5px);
+        text-shadow: 0 0 20px rgba(230, 138, 0, 0.7);
+    }
+    80% {
+        transform: translate(2px, 5px);
+        text-shadow: 0 0 15px rgba(212, 192, 0, 0.7);
+    }
+    100% {
+        transform: translate(0);
+        text-shadow: 0 0 5px rgba(212, 192, 0, 0.7);
+    }
+}
+
+@keyframes scanline {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: 0 100%;
+    }
+}
+
+/* Make the arrow icon white */
+.hero-bottom-content .icon-size-24 {
+    filter: brightness(0) invert(1); /* Makes the icon white */
+}
+
+/* Ensure navigation is visible against image background */
+.nav {
+    position: relative;
+    z-index: 10;
+}
+
+.nav .hamburger-menu-line-one,
+.nav .hamburger-menu-line-two {
+    background-color: #ffffff; /* Make hamburger menu white */
+}
+
+.nav-buttons-wrapper .button.secondary {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.5);
 }
 /* Loading Screen Styles - Enhanced Aesthetics */
 .loading-screen {
@@ -249,14 +614,181 @@
     100% { transform: translateX(-50px); }
 }
 
-/* Responsive adjustments */
+/* Responsive adjustments for different screen sizes */
+@media (min-width: 1921px) {
+    /* For very large screens */
+    .video-background iframe {
+        width: 100vw;
+        height: 100vh;
+        transform: translate(-50%, -50%) scale(1.1); /* Scale up slightly to ensure coverage */
+    }
+
+    /* Adjust h1 size for very large screens */
+    h1, .h1, .home-hero-text {
+        font-size: 320px;
+        -webkit-text-stroke: 3px white; /* Thicker stroke for larger text */
+    }
+
+    /* Adjust glitch effect for large screens */
+    h1:before, .h1:before, .home-hero-text:before,
+    h1:after, .h1:after, .home-hero-text:after {
+        -webkit-text-stroke: 3px rgba(255, 0, 0, 0.7); /* Thicker red glitch */
+    }
+
+    h1:after, .h1:after, .home-hero-text:after {
+        -webkit-text-stroke: 3px rgba(0, 255, 255, 0.7); /* Thicker cyan glitch */
+    }
+}
+
+@media (min-width: 1200px) and (max-width: 1920px) {
+    /* For desktop screens */
+    .video-background iframe {
+        width: 100vw;
+        height: 100vh;
+        transform: translate(-50%, -50%) scale(1.05);
+    }
+}
+
+/* Tablet adjustments */
+@media (min-width: 768px) and (max-width: 1199px) {
+    .video-background iframe {
+        width: 100vw;
+        height: 100vh;
+        transform: translate(-50%, -50%) scale(1.15); /* Scale up more for tablets */
+    }
+
+    /* Adjust hero section for tablets */
+    .hero {
+        min-height: 650px;
+    }
+
+    /* Adjust h1 size for tablets */
+    h1, .h1, .home-hero-text {
+        font-size: 180px;
+        -webkit-text-stroke: 1.5px white;
+        letter-spacing: -3px;
+    }
+
+    /* Adjust glitch effect for tablets */
+    h1:before, .h1:before, .home-hero-text:before,
+    h1:after, .h1:after, .home-hero-text:after {
+        -webkit-text-stroke: 1.5px rgba(255, 0, 0, 0.7);
+    }
+
+    h1:after, .h1:after, .home-hero-text:after {
+        -webkit-text-stroke: 1.5px rgba(0, 255, 255, 0.7);
+    }
+
+    /* Reduce glitch animation intensity for tablets */
+    @keyframes glitch-anim {
+        0%, 100% {
+            clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%);
+            transform: translate(-3px, -2px);
+        }
+        50% {
+            clip-path: polygon(0 15%, 100% 15%, 100% 40%, 0 40%);
+            transform: translate(2px, 2px);
+        }
+    }
+
+    @keyframes glitch-anim2 {
+        0%, 100% {
+            clip-path: polygon(0 60%, 100% 60%, 100% 100%, 0 100%);
+            transform: translate(3px, 2px);
+        }
+        50% {
+            clip-path: polygon(0 50%, 100% 50%, 100% 100%, 0 100%);
+            transform: translate(-2px, -1px);
+        }
+    }
+}
+
+/* Portrait orientation adjustments */
+@media (orientation: portrait) {
+    .video-background iframe {
+        width: 100vh; /* Use viewport height for width in portrait mode */
+        height: 100vw; /* Use viewport width for height in portrait mode */
+        transform: translate(-50%, -50%) rotate(90deg) scale(1.5); /* Rotate and scale up to cover */
+    }
+}
+
+/* Mobile adjustments */
 @media (max-width: 767px) {
     .loading-logo {
         font-size: 90px;
     }
-    
+
     .loading-content {
         padding: 40px 30px;
+    }
+
+    /* Adjust h1 size for mobile */
+    h1, .h1, .home-hero-text {
+        font-size: 120px;
+        -webkit-text-stroke: 1px white;
+        letter-spacing: -2px;
+        line-height: 90%;
+    }
+
+    /* Adjust glitch effect for mobile */
+    h1:before, .h1:before, .home-hero-text:before,
+    h1:after, .h1:after, .home-hero-text:after {
+        -webkit-text-stroke: 1px rgba(255, 0, 0, 0.7);
+    }
+
+    h1:after, .h1:after, .home-hero-text:after {
+        -webkit-text-stroke: 1px rgba(0, 255, 255, 0.7);
+    }
+
+    /* Simplify glitch animation for mobile */
+    @keyframes glitch-anim {
+        0%, 100% {
+            clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%);
+            transform: translate(-2px, -1px);
+        }
+        50% {
+            clip-path: polygon(0 15%, 100% 15%, 100% 40%, 0 40%);
+            transform: translate(1px, 1px);
+        }
+    }
+
+    @keyframes glitch-anim2 {
+        0%, 100% {
+            clip-path: polygon(0 60%, 100% 60%, 100% 100%, 0 100%);
+            transform: translate(2px, 1px);
+        }
+        50% {
+            clip-path: polygon(0 50%, 100% 50%, 100% 100%, 0 100%);
+            transform: translate(-1px, -1px);
+        }
+    }
+
+    @keyframes glitch-skew {
+        0%, 100% {
+            transform: skew(0deg);
+        }
+        50% {
+            transform: skew(0.3deg);
+        }
+    }
+
+    /* Adjust video background for mobile */
+    .video-background iframe {
+        width: 100vw;
+        height: 100vh;
+        min-width: 100%;
+        min-height: 100%;
+        transform: translate(-50%, -50%) scale(1.2); /* Slightly scale up to ensure full coverage */
+    }
+
+    /* Increase overlay opacity on mobile for better text readability */
+    .video-overlay {
+        background: rgba(0, 0, 0, 0.6);
+    }
+
+    /* Adjust hero section for mobile */
+    .hero {
+        min-height: 600px;
     }
 }
 
@@ -297,7 +829,46 @@
     }
 }
 
-@media (max-width:479px) {
+/* Small mobile devices */
+@media (max-width: 479px) {
+    h1, .h1, .home-hero-text {
+        font-size: 90px;
+        -webkit-text-stroke: 1px white;
+        letter-spacing: -1.5px;
+        line-height: 90%;
+    }
+
+    /* Further simplify glitch effect for small mobile */
+    h1:before, .h1:before, .home-hero-text:before,
+    h1:after, .h1:after, .home-hero-text:after {
+        -webkit-text-stroke: 0.5px rgba(255, 0, 0, 0.7);
+        transform: translate(-1px, -1px);
+    }
+
+    h1:after, .h1:after, .home-hero-text:after {
+        -webkit-text-stroke: 0.5px rgba(0, 255, 255, 0.7);
+        transform: translate(1px, 1px);
+    }
+
+    /* Minimal glitch animation for small mobile */
+    @keyframes glitch-anim {
+        0%, 100% {
+            transform: translate(-1px, 0);
+        }
+        50% {
+            transform: translate(1px, 0);
+        }
+    }
+
+    @keyframes glitch-anim2 {
+        0%, 100% {
+            transform: translate(-1px, 0);
+        }
+        50% {
+            transform: translate(1px, 0);
+        }
+    }
+
     html.w-mod-js:not(.w-mod-ix) [data-w-id="6c788ae3-ecc2-3205-37cf-448614eeca5c"] {
         -webkit-transform: translate3d(0px, 0px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0);
         -moz-transform: translate3d(0px, 0px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0);
@@ -332,4 +903,22 @@
         transform: translate3d(0px, 0px, 0) scale3d(1, 1, 1) rotateX(null) rotateY(0) rotateZ(0deg) skew(0, 0);
         transform-style: preserve-3d;
     }
+}
+
+/* Add to your style/index.css */
+.typing-effect {
+  overflow: hidden;
+  border-right: 2px solid #d4c000;
+  white-space: nowrap;
+  animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: #d4c000 }
 }

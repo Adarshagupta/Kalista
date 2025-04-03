@@ -31,6 +31,9 @@
         href="https://assets-global.website-files.com/664af7bf6430c50e0ebf6c3f/css/bonanza-events.webflow.7f1925844.css"
         rel="stylesheet" type="text/css" />
     <link href="style/index.css" rel="stylesheet" type="text/css" />
+    <link href="style/particles.css" rel="stylesheet" type="text/css" />
+    <link href="style/grid-overlay.css" rel="stylesheet" type="text/css" />
+    <link href="style/data-corruption.css" rel="stylesheet" type="text/css" />
     <link href="https://fonts.googleapis.com" rel="preconnect" />
     <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="anonymous" />
     <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js" type="text/javascript"></script>
@@ -63,7 +66,7 @@
                 <div class="wave"></div>
             </div>
         </div>
-        
+
         <!-- Main content -->
         <div class="loading-content">
             <div class="loading-logo">
@@ -71,14 +74,14 @@
                 <div class="loading-logo-highlight"></div>
             </div>
             <div class="loading-tagline">Ultimate Online Marketing Experience</div>
-            
+
             <div class="loading-progress-container">
                 <div class="loading-percentage">Loading...</div>
                 <div class="loading-progress">
                     <div class="loading-bar"></div>
                 </div>
             </div>
-            
+
             <div class="loading-text">
                 Preparing Experience
                 <div class="loading-dots">
@@ -89,8 +92,20 @@
             </div>
         </div>
     </div>
-    
+
     <main class="hero">
+        <!-- Video Background (Vimeo) -->
+        <div class="video-background">
+            <iframe src="https://player.vimeo.com/video/1072316490?background=1&autoplay=1&loop=1&byline=0&title=0&muted=1&quality=auto&responsive=1" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+            <div class="video-overlay"></div>
+        </div>
+
+        <!-- Cyberpunk Grid Overlay -->
+        <div class="grid-overlay"></div>
+        <div class="horizontal-scan"></div>
+
+        <!-- Floating Particles -->
+        <div class="particles-container" id="particles-container"></div>
         <nav class="nav">
             <div class="w-layout-blockcontainer container w-container">
                 <div class="nav-content"><a href="/" aria-current="page" class="nav-logo-block w-inline-block w--current" style="display: flex; align-items: center; gap: 20px;"><img
@@ -156,7 +171,8 @@
                     </div>
                     <h1 data-w-id="5a777a45-966d-c003-364c-baa618790cf8"
                         style="-webkit-transform:translate3d(0, 100%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 100%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 100%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 100%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)"
-                        class="h1 home-hero-text">E-SUMMIT</h1>
+                        class="h1 home-hero-text cycling-text" data-text="E-SUMMIT">E-SUMMIT</h1>
+                    <div class="data-corruption" data-text="E-SUMMIT"></div>
                 </div><a data-w-id="8d855336-d071-87dc-3ed8-16e488c4b5ed"
                     style="-webkit-transform:translate3d(0, 0, 0) scale3d(0.5, 0.5, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 0, 0) scale3d(0.5, 0.5, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 0, 0) scale3d(0.5, 0.5, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 0, 0) scale3d(0.5, 0.5, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0"
                     href="#about-events" class="hero-button w-inline-block">
@@ -213,7 +229,7 @@
                             <div class="event-card-content">
                                 <div class="event-card-main-info">
                                     <div class="event-card-author-and-date">
-                                        <div class="regular-s-uppercase">StartUp  <br />Expo</div>
+                                        <div class="regular-s-uppercase">StartUp <br />Expo</div>
                                         <div class="semibold-m-uppercase">01 Jul 2024</div>
                                     </div>
                                     <div class="chips">
@@ -243,7 +259,7 @@
                             <div class="event-card-content">
                                 <div class="event-card-main-info">
                                     <div class="event-card-author-and-date">
-                                        <div class="regular-s-uppercase">Mike  <br />Stevens</div>
+                                        <div class="regular-s-uppercase">Mike <br />Stevens</div>
                                         <div class="semibold-m-uppercase">24 Jul 2024</div>
                                     </div>
                                     <div class="chips">
@@ -273,7 +289,7 @@
                             <div class="event-card-content">
                                 <div class="event-card-main-info">
                                     <div class="event-card-author-and-date">
-                                        <div class="regular-s-uppercase">Jane  <br />Abrams</div>
+                                        <div class="regular-s-uppercase">Jane <br />Abrams</div>
                                         <div class="semibold-m-uppercase">19 Aug 2024</div>
                                     </div>
                                     <div class="chips">
@@ -358,7 +374,7 @@
                                 <div class="service-card-highlight-circle"></div>
                             </div>
                             <h3 class="h3 max-width-240-mobile-216">Keynote Address                            </h3>
-                            <p>Known far and wide as the Father of Aadhaar, he spearheaded the creation of the world’s largest biometric ID system, transforming governance as Chairperson of UIDAI. 
+                            <p>Known far and wide as the Father of Aadhaar, he spearheaded the creation of the world’s largest biometric ID system, transforming governance as Chairperson of UIDAI.
                             </p>
                         </div>
                         <div id="w-node-_911d9c34-0af6-3613-7646-5755111f0a08-0ebf6c48"
@@ -829,7 +845,7 @@
                                                     src="https://cdn.prod.website-files.com/664af7bf6430c50e0ebf6c3f/664c77987372ff682aa2ab35_Checkmark.svg"
                                                     loading="lazy" alt="" class="icon-size-24" /></div>
                                             <div class="success-message-text">
-                                                <div class="regular-xl max-width-160">Your Message Has Been Sent</div>
+                                                <div class="regular-xl max-width-160">Your MessageHas Been Sent</div>
                                                 <p class="medium-m">You can expect a response within 24 hours. Stay
                                                     tuned for some fantastic news!</p>
                                             </div>
@@ -899,7 +915,7 @@
         crossorigin="anonymous"></script>
     <script src="https://assets-global.website-files.com/664af7bf6430c50e0ebf6c3f/js/webflow.239d3f383.js"
         type="module"></script>
-        
+
     <!-- Loading Screen Script - Added without modifying existing scripts -->
     <script>
         document.addEventListener("DOMContentLoaded", function() {
@@ -909,15 +925,82 @@
                     // Fade out the loading screen
                     var loadingScreen = document.getElementById("loading-screen");
                     loadingScreen.style.opacity = "0";
-                    
+
                     // Remove it after the transition
                     setTimeout(function() {
                         loadingScreen.style.display = "none";
                     }, 500);
                 }, 1500); // Show loading screen for at least 1.5 seconds for effect
             });
+
+            // Vimeo background handling
+            var iframeElement = document.querySelector('.video-background iframe');
+            if (iframeElement) {
+                // If iframe fails to load, add a fallback background color
+                iframeElement.addEventListener('error', function() {
+                    document.querySelector('.hero').style.backgroundColor = '#1a1a1a';
+                });
+
+                // Add a fallback in case the Vimeo video doesn't load
+                setTimeout(function() {
+                    // Check if iframe is still loading or has issues
+                    if (iframeElement.contentWindow && iframeElement.contentWindow.document.readyState !== 'complete') {
+                        document.querySelector('.hero').style.backgroundColor = '#1a1a1a';
+                    }
+                }, 5000); // Check after 5 seconds
+            }
+
+            // Text cycling functionality
+            const cyclingText = document.querySelector('.cycling-text');
+            if (cyclingText) {
+                const phrases = ["E-SUMMIT", "100+ STARTUPS", "35+ COMPANIES"];
+                let currentIndex = 0;
+
+                // Initial setup
+                cyclingText.setAttribute('data-text', phrases[0]);
+                cyclingText.textContent = phrases[0];
+
+                // Update text and data-text attribute every 4 seconds
+                setInterval(function() {
+                    currentIndex = (currentIndex + 1) % phrases.length;
+
+                    // Add transitioning class for enhanced glitch effect
+                    cyclingText.classList.add('transitioning');
+                    cyclingText.style.opacity = '0.1';
+
+                    // Intense glitch during transition
+                    let glitchCount = 0;
+                    const glitchInterval = setInterval(function() {
+                        // Random position shifts during transition
+                        const xShift = (Math.random() * 10 - 5) + 'px';
+                        const yShift = (Math.random() * 10 - 5) + 'px';
+                        cyclingText.style.transform = `translate(${xShift}, ${yShift})`;
+
+                        glitchCount++;
+                        if (glitchCount >= 5) {
+                            clearInterval(glitchInterval);
+                            cyclingText.style.transform = 'translate(0, 0)';
+                        }
+                    }, 40);
+
+                    setTimeout(function() {
+                        // Update the text content and data attribute
+                        cyclingText.setAttribute('data-text', phrases[currentIndex]);
+                        cyclingText.textContent = phrases[currentIndex];
+                        cyclingText.style.opacity = '1';
+
+                        // Remove transitioning class after change is complete
+                        setTimeout(function() {
+                            cyclingText.classList.remove('transitioning');
+                        }, 200);
+                    }, 200);
+                }, 4000);
+            }
         });
     </script>
+
+    <!-- Cyberpunk Effects Script -->
+    <script src="js/cyberpunk-effects.js"></script>
 </body>
 
 </html>

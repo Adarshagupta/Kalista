@@ -1,0 +1,48 @@
+/* Data corruption effect for cyberpunk text */
+.data-corruption {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 3;
+    pointer-events: none;
+    mix-blend-mode: overlay;
+    opacity: 0;
+    animation: data-corruption 10s infinite;
+}
+
+.data-corruption::before {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg,
+        transparent 0%,
+        rgba(212, 192, 0, 0.1) 20%,
+        rgba(212, 192, 0, 0.3) 50%,
+        rgba(212, 192, 0, 0.1) 80%,
+        transparent 100%);
+    background-size: 200% 100%;
+    animation: data-scan 2s infinite linear;
+}
+
+@keyframes data-corruption {
+    0%, 95%, 100% {
+        opacity: 0;
+    }
+    10%, 15%, 30%, 35%, 50%, 55%, 70%, 75%, 90% {
+        opacity: 0.3;
+    }
+}
+
+@keyframes data-scan {
+    0% {
+        background-position: -200% 0;
+    }
+    100% {
+        background-position: 200% 0;
+    }
+}

@@ -1,0 +1,51 @@
+/* Cyberpunk grid overlay */
+.grid-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+        linear-gradient(to right, rgba(212, 192, 0, 0.05) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(212, 192, 0, 0.05) 1px, transparent 1px);
+    background-size: 40px 40px;
+    z-index: 1;
+    pointer-events: none;
+    opacity: 0.5;
+    mix-blend-mode: overlay;
+}
+
+.grid-overlay::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, transparent 0%, rgba(0, 0, 0, 0.7) 100%);
+    z-index: -1;
+}
+
+/* Horizontal scan line */
+.horizontal-scan {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: rgba(212, 192, 0, 0.3);
+    box-shadow: 0 0 15px 3px rgba(212, 192, 0, 0.5);
+    z-index: 2;
+    pointer-events: none;
+    opacity: 0.7;
+    animation: horizontal-scan 8s infinite linear;
+}
+
+@keyframes horizontal-scan {
+    0% {
+        top: -5px;
+    }
+    100% {
+        top: 100%;
+    }
+}
