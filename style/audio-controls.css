@@ -1,0 +1,103 @@
+/* Audio controls styling */
+.audio-control {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 100;
+    background-color: rgba(0, 0, 0, 0.6);
+    border: 1px solid #d4c000;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 10px rgba(212, 192, 0, 0.3);
+}
+
+.audio-control:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+    box-shadow: 0 0 15px rgba(212, 192, 0, 0.5);
+    transform: scale(1.05);
+}
+
+.audio-control svg {
+    width: 20px;
+    height: 20px;
+    fill: #d4c000;
+    transition: all 0.3s ease;
+}
+
+.audio-control:hover svg {
+    fill: #ffee00;
+}
+
+.audio-control.muted .mute-icon {
+    display: none;
+}
+
+.audio-control.muted .unmute-icon {
+    display: block;
+}
+
+.audio-control:not(.muted) .mute-icon {
+    display: block;
+}
+
+.audio-control:not(.muted) .unmute-icon {
+    display: none;
+}
+
+/* Pulse animation for the button */
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(212, 192, 0, 0.4);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(212, 192, 0, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(212, 192, 0, 0);
+    }
+}
+
+.audio-control.pulse {
+    animation: pulse 1.5s infinite;
+}
+
+/* Tooltip styling */
+.audio-control .tooltip {
+    position: absolute;
+    top: -30px;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #d4c000;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 12px;
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.audio-control:hover .tooltip {
+    opacity: 1;
+}
+
+/* Responsive adjustments */
+@media (max-width: 767px) {
+    .audio-control {
+        bottom: 15px;
+        right: 15px;
+        width: 35px;
+        height: 35px;
+    }
+    
+    .audio-control svg {
+        width: 16px;
+        height: 16px;
+    }
+}

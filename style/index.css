@@ -2,19 +2,52 @@
 .w-webflow-badge {
     display: none !important;
 }
+
+/* Custom property for iOS viewport height fix */
+:root {
+    --vh: 1vh;
+}
+
+/* Hide scrollbars across the site while maintaining scroll functionality */
+html, body {
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+    overflow-y: auto;
+}
+
+html::-webkit-scrollbar, body::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
+    width: 0;
+    height: 0;
+}
+
+/* Hide scrollbars on all elements */
+* {
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+}
+
+*::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
+    width: 0;
+    height: 0;
+}
 .hero{
-    background-color: rgb(208, 206, 206); /* Changed from var(--accent-yellow) to transparent for image background */
+    background-color: transparent; /* Changed to transparent for video background */
     flex-flow: column;
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: 100vh;
-    min-height: 680px;
+    height: 100vh; /* Full viewport height */
+    height: calc(var(--vh, 1vh) * 100); /* iOS fix */
+    min-height: 100vh; /* Ensure it's at least full viewport height */
+    min-height: calc(var(--vh, 1vh) * 100); /* iOS fix */
     padding-top: 28px;
     display: flex;
     position: fixed; /* Keep fixed positioning */
     overflow: hidden;
-
+    top: 0;
+    left: 0;
 }
 /* Hero ball with cyberpunk yellow glow */
 .hero-ball {
@@ -58,7 +91,8 @@
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
+    height: 100vh; /* Use viewport height to ensure full screen coverage */
+    height: calc(var(--vh, 1vh) * 100); /* iOS fix */
     z-index: -1;
     overflow: hidden;
 }
@@ -69,11 +103,13 @@
     left: 50%;
     width: 100vw;
     height: 100vh;
-    transform: translate(-50%, -50%);
+    height: calc(var(--vh, 1vh) * 100); /* iOS fix */
+    transform: translate(-50%, -50%) scale(1.01); /* Slight scale to prevent any gaps */
     pointer-events: none; /* Prevents interaction with the iframe */
     object-fit: cover;
     min-width: 100%;
     min-height: 100%;
+    background: #000; /* Add black background to fill any gaps */
 }
 
 .video-overlay {
@@ -706,9 +742,29 @@ h1:after, .h1:after, .home-hero-text:after {
 /* Portrait orientation adjustments */
 @media (orientation: portrait) {
     .video-background iframe {
-        width: 100vh; /* Use viewport height for width in portrait mode */
-        height: 100vw; /* Use viewport width for height in portrait mode */
-        transform: translate(-50%, -50%) rotate(90deg) scale(1.5); /* Rotate and scale up to cover */
+        width: 100vw;
+        height: 100vh;
+        min-width: 100vw;
+        min-height: 100vh;
+        transform: translate(-50%, -50%) scale(1.5); /* Scale up significantly in portrait mode */
+        object-position: center;
+    }
+
+    /* Force video to be cropped rather than letterboxed */
+    .video-background {
+        overflow: hidden;
+        height: 100vh !important; /* Force full height */
+    }
+
+    /* Add extra overlay opacity for better text readability on mobile */
+    .video-overlay {
+        background: rgba(0, 0, 0, 0.6);
+    }
+
+    /* Ensure hero section takes full height */
+    .hero {
+        height: 100vh !important;
+        min-height: 100vh !important;
     }
 }
 
@@ -720,6 +776,15 @@ h1:after, .h1:after, .home-hero-text:after {
 
     .loading-content {
         padding: 40px 30px;
+    }
+
+    /* Adjust video background for mobile */
+    .video-background iframe {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+        transform: translate(-50%, -50%) scale(1.2); /* Scale up slightly to ensure full coverage */
+        object-position: center;
     }
 
     /* Adjust h1 size for mobile */
@@ -831,6 +896,15 @@ h1:after, .h1:after, .home-hero-text:after {
 
 /* Small mobile devices */
 @media (max-width: 479px) {
+    /* Further adjust video for small screens */
+    .video-background iframe {
+        transform: translate(-50%, -50%) scale(1.5); /* Scale up more for very small screens */
+    }
+
+    /* Increase overlay opacity for better readability */
+    .video-overlay {
+        background: rgba(0, 0, 0, 0.7);
+    }
     h1, .h1, .home-hero-text {
         font-size: 90px;
         -webkit-text-stroke: 1px white;
